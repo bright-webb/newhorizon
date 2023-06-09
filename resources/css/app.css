@@ -1,0 +1,19 @@
+ @import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+body{
+    line-height: 2;
+}
+ main{
+    margin: 30px;
+ }
+ .big{
+    font-family: 'Secular One', sans-serif;
+    font-weight: bolder;
+ }
+
+ .turbolinks-progress-bar {
+  background-color: #070707 !important;
+}
+
+.hidden{
+    display: none;
+}
