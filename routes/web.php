@@ -22,5 +22,10 @@ Route::get('/getting-started', function () {
     return view('getting-started');
 });
 
+Route::get('/getting-started', function () {
+    return view('/verify');
+});
+
 
 Route::post('/post/get-started', [PostController::class, 'get_started']);
+Route::post('/post/register', [PostController::class, 'register']);

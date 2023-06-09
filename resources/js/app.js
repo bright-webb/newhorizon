@@ -64,4 +64,31 @@ $(document).on('turbolinks:load', function() {
 
     $('.age').text(age + " years");
   });
+
+  // register the user
+  $('.register-form').on('submit', function(){
+    const form = $(this);
+    form.addClass('loading');
+    form.append('<div class="ui message error"></div>');
+    const data = $(this).serialize();
+    $.ajax({
+        type: "POST",
+        url: "/post/register",
+        data: data,
+        success: function(response){
+            if(response.status_code == 201){
+                Turbolinks.visit(`/verify`);
+            }
+            else{
+                form.removeClass('loading');
+                $(document).find('.error').html(response.message).addClass('negative').css("display", "block");
+            }
+        },
+        error: function(xhr, error, status){
+            form.removeClass('loading');
+            $(document).find('.error').html(xhr.responseJSON.message).addClass('negative').css("display", "block");
+        }
+    })
+    return false;
+  })
 });

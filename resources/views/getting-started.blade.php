@@ -7,7 +7,9 @@
             <a href="https://{{$_GET['user']}}" target="_blank" style="position: relative; top: -10px">{{$_GET['user']}}</a>
             <div class="ui divider"></div>
 
-            <form class="ui form">
+            <form class="ui form register-form">
+                <input type="hidden" name="_token" value="{{csrf_token()}}">
+                <input type="hidden" name="email" value="{{$_GET['user']}}">
                 <div class="field">
                     <label><strong>What should we call you?</strong></label>
                     <input type="text" name="name" class="name" pattern="^[A-Za-z\s]+$" placeholder="Please tell us your name" required>
